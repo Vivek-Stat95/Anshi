@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Why we should talk💖</title>
+  <title>Returns If we became friends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -14,6 +14,11 @@
       align-items: center;
       justify-content: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-weight: 500;
+    }
+
+    h1, h2 {
+      font-weight:700;
     }
 
     .card {
@@ -29,6 +34,7 @@
     .title{
         opacity: 0.85;
         margin-bottom: 15px;
+        color: #ff5fa2;
     }
 
     .percent {
@@ -58,7 +64,7 @@
       display: none;
       margin-top: 15px;
       font-size: 14px;
-      color: #ff0000;
+      color: red;
       letter-spacing: 1px;
       /* animation: shake 0.5s infinite; */
     }
@@ -74,6 +80,7 @@
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 6px 18px rgba(255, 80, 150, 0.45);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
   }
 
   </style>
@@ -82,7 +89,7 @@
 
 <body>
     <div class="card">
-      <div class="title">First let's check what are the returns if we talk a bit regularly </div>
+      <div class="title">First let's check what are the returns if we became friends</div>
       <div class="percent" id="percent">0%</div>
   
       <div class="progress-bg">
@@ -90,14 +97,11 @@
       </div>
   
       <div class="warning" id="warning">
-        WARNING ⚠️ : Returns exceeded the expected limit <br>
-        Khi Khi &#128518 <br>
-        Mai to majak kr rha tha <br>
-        Ab yha tak aa hi gyi hain to reasons bhi jaan lijiye &#128517
+        ⚠️ : Returns might exceed expectations
       </div>
 
       <button class="next-btn" id="nextBtn" onclick="goNext()">
-        Click here to know the reasons...
+        Click here to know why...
       </button>
     </div>
   
@@ -121,7 +125,7 @@
         }, 40);
       
         function goNext() {
-          window.location.href = "reveal.html";
+          window.location.href = "test.html";
         }
       </script>
       </body>

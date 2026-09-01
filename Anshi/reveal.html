@@ -10,6 +10,19 @@
       margin: 0;
       height: 100vh;
       background: linear-gradient(to bottom, #fff0f6, #ffe6f0);
+      /*background-image: url('Sky2.png');*/
+      /* Centers the image perfectly */
+      background-position: center; 
+      
+      /* Prevents the image from duplicating like a tile grid */
+      background-repeat: no-repeat; 
+      
+      /* Forces the image to dynamically scale and fill the entire screen */
+      background-size: cover; 
+      
+      /* Keeps the background static if any content scrolls over it */
+      background-attachment: fixed; 
+      
       display: flex;
       align-items: center;
       justify-content: center;
@@ -18,9 +31,10 @@
 
   .container {
     width: 90%;
-    max-width: 400px;
+    max-width: 900px;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 10px;
+    color: #ff3d81;
   }
 
   .heart {
@@ -34,9 +48,9 @@
   }
 
   h1 {
-    color: #ff5fa2;
-    margin: 15px 0 5px;
-    font-family: 'Brush Script MT', cursive;
+    color: #ff3d81;
+    margin: 15px 0 15px;
+    font-family: 'Comic Sans MS', cursive;
     font-size: 42px;
   }
 
@@ -101,28 +115,28 @@
 
 <body>
   <div class="container">
-    <div class="heart">❤️</div>
-    <h1>Shayad itne kaafi honge, agr nhi to I'll give you more...</h1>
-    <p>Niche diye huye boxes pr click kijiye.</p>
+    <!-- <div class="heart">❤️</div> -->
+    <h2>I think these are enough, agr nhi to I'll give you more...</h2>
+    <h3>Click on the boxes below</h3>
 
     <div class="grid">
       <div class="box" onclick="reveal(this)">
-        💌 Yeah
+         Yeah
         <div class="hidden-text">Agr baat nhi krenge to aapko pta kaise chalega ki Joru ka Gulam kise khte hain</div>
       </div>
 
       <div class="box" onclick="reveal(this)">
-        💖 Once more
+        Once more
         <div class="hidden-text">Agr baat nhi krenge to Satyanarayan Bhagwan ki katha me saath kaise baithenge.</div>
       </div>
 
       <div class="box" onclick="reveal(this)">
-        ✨ Good girl
+        Good girl
         <div class="hidden-text">M nhi chahta mere beta aapki beti ko line maare, isse accha kucch aisa krte hain ki dono bhai behen bn jayein.</div>
       </div>
 
       <div class="box" onclick="reveal(this)">
-        🌸 One last time
+        One last time
         <div class="hidden-text">Baat nhi kroge to aapke bed ke right side vala hissa mera kaise hoga.</div>
       </div>
     </div>
@@ -143,7 +157,7 @@
   
       if (text.style.display !== "block") {
         text.style.display = "block";
-        box.firstChild.textContent = "💗";
+        box.firstChild.textContent = "";
         openedCount++;
   
         if (openedCount === totalBoxes) {
@@ -156,7 +170,7 @@
     }
   
     function goNote() {
-      window.location.href = "questions.html";
+      window.location.href = "note.html";
     }
   </script>
   

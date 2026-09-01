@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Why</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #fff0f6, #ffd6e8);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.h3 {
+  color: #ff6fa8;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 92%;
+  text-align: center;
+  padding: 40px 0;
+}
+
+
+
+.main-container {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+
+
+.panel {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #ffe6f2
+    );
+
+  border-radius: 25px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(255, 105, 180, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+
+.panel h2 {
+  font-family:
+    'Comic Sans MS',
+    cursive,
+    sans-serif;
+
+  font-size: 34px;
+
+  color:#ff6fa8;
+
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+
+
+.subtitle {
+  color: #7a003c;
+
+  margin-bottom: 25px;
+
+  font-size: 16px;
+}
+
+
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+
+
+.memory-card {
+  aspect-ratio: 1 / 1;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #ffdcec
+    );
+
+  box-shadow:
+    0 8px 20px rgba(255, 105, 180, 0.28);
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-family:
+    'Comic Sans MS',
+    cursive,
+    sans-serif;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+
+
+.memory-card span {
+  color: #ff3d9a;
+
+  font-size: 16px;
+
+  opacity: 0.85;
+}
+
+
+
+
+.memory-card:hover {
+  transform: translateY(-7px) scale(1.03);
+
+  box-shadow:
+    0 15px 30px rgba(255, 60, 150, 0.4);
+}
+
+
+
+.bullet-list {
+  text-align: left;
+
+  margin: 10px 0 0;
+
+  padding-left: 30px;
+}
+
+
+.bullet-list li {
+  color: #5a0033;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  margin-bottom: 18px;
+
+  padding-left: 5px;
+}
+
+
+.bullet-list li::marker {
+  color: #ff3d9a;
+
+  font-size: 20px;
+}
+
+
+/* =========================
+   POPUP
+   ========================= */
+
+.popup {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(122, 0, 60, 0.28);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  padding: 20px;
+}
+
+
+.popup.active {
+  display: flex;
+}
+
+
+/* POPUP BOX */
+
+.popup-content {
+  width: min(500px, 90%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #ffe6f2
+    );
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 20px 50px rgba(255, 60, 150, 0.45);
+
+  animation:
+    popupIn 0.3s ease;
+
+  text-align: center;
+}
+
+
+@keyframes popupIn {
+
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+
+/* POPUP IMAGE */
+
+.popup-content img {
+  width: 100%;
+
+  max-height: 350px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 15px;
+}
+
+
+/* POPUP TITLE */
+
+.popup-content h3 {
+  font-family:
+    'Brush Script MT',
+    cursive;
+
+  font-size: 34px;
+
+  color: #ff3d81;
+
+  margin:
+    5px 0 10px;
+}
+
+
+/* POPUP TEXT */
+
+.popup-content p {
+  color: #5a0033;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  margin:
+    0 0 15px;
+}
+
+
+/* CLOSE BUTTON */
+
+.close-btn {
+  border: none;
+
+  background: #ff3d9a;
+
+  color: white;
+
+  padding:
+    10px 24px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   NEXT PAGE BUTTON
+   ========================= */
+
+.next-container {
+  margin-top: 35px;
+}
+
+
+.next-btn {
+  padding:
+    14px 36px;
+
+  font-size: 16px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff7abf,
+      #ff3d9a
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  box-shadow:
+    0 10px 25px rgba(255, 105, 180, 0.45);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.next-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(255, 60, 150, 0.5);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 800px) {
+
+  body {
+    align-items: flex-start;
+  }
+
+  .wrapper {
+    padding: 30px 0;
+  }
+
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .grid {
+    gap: 12px;
+  }
+
+  .memory-card {
+    border-radius: 16px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+  <div class="h3">
+  <h3>Dude, I know only a little about you so far, but it’d be nice to know you better :),
+     And who knows, we might end up having some fun conversations about art, science, sports, Movies, cooking, most important baking😋 and everything in between.
+  </h3></div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+
+  <div class="main-container">
+    
+    <!-- =====================
+         LEFT PANEL
+         ===================== -->
+
+    <div class="panel">
+
+      <h2>Few things I know about you</h2>
+
+      <div class="subtitle">
+        Here is what we can do together --> tap below :)
+      </div>
+
+
+      <div class="grid">
+
+
+        <!-- BOX 1 -->
+
+        <button
+          class="memory-card"
+          onclick="openPopup(
+            'Rain 🌧️',
+            'rain2.PNG',
+            'We can go for bike rides.'
+          )">
+
+          <span>Rain 🌧️</span>
+
+        </button>
+
+
+        <!-- BOX 2 -->
+
+        <button
+          class="memory-card"
+          onclick="openPopup(
+            'Flowers 🌸',
+            'flowers.PNG',
+            'Khi - Khi'
+          )">
+
+          <span>Flowers 🌸</span>
+
+        </button>
+
+
+        <!-- BOX 3 -->
+
+        <button
+          class="memory-card"
+          onclick="openPopup(
+            'Stars 💫',
+            'stars.PNG',
+            'We can sit together under the sky full of stars.'
+          )">
+
+          <span>Stars 💫</span>
+
+        </button>
+
+
+        <!-- BOX 4 -->
+
+        <button
+          class="memory-card"
+          onclick="openPopup(
+            'Movies 🎬',
+            'movies.jpg',
+            'My life itself is a movie, which you would enjoy ig.'
+          )">
+
+          <span>Movies 🎬</span>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================
+         RIGHT PANEL
+         ===================== -->
+
+    <div class="panel">
+
+      <h2>Things I Want to know about you.</h2>
+
+
+      <ul class="bullet-list">
+
+        <li>
+          your dreams.
+        </li>
+
+        <li>
+          your fears.
+        </li>
+
+        <li>
+          What does your perfect weekend look like?
+        </li>
+
+        <li>
+          What is one place you would love to visit someday?
+        </li>
+
+        <li>
+          What is something small that always makes your day better?
+        </li>
+
+        <li>
+          Whether you eat best part of the meal first or save it for the end.
+        </li>
+
+        <li>
+          What kind of people make you feel most comfortable?
+        </li>
+
+        <li>
+          Whether you turn the pillow over to find the cooler side.
+        </li>
+
+      And for  all these things, aapko thodu si baatein krni pd  skti hain. <br>
+      If you are comfortable, then only :)
+        </ul>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- =========================
+       NEXT PAGE
+       ========================= -->
+
+  <div class="next-container">
+
+    <button
+      class="next-btn"
+      onclick="location.href='reveal2.html'">
+
+      Few more things :)
+
+    </button>
+
+  </div>
+
+
+</div>
+
+
+<!-- =========================
+     POPUP
+     ========================= -->
+
+<div
+  class="popup"
+  id="popup">
+
+
+  <div class="popup-content">
+
+
+    <img
+      id="popupImage"
+      src=""
+      alt="">
+
+
+    <h3
+      id="popupTitle">
+    </h3>
+
+
+    <p
+      id="popupText">
+    </p>
+
+
+    <button
+      class="close-btn"
+      onclick="closePopup()">
+
+      Close
+
+    </button>
+
+
+  </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   OPEN POPUP
+   ========================= */
+
+function openPopup(title, image, text) {
+
+  document
+    .getElementById("popupTitle")
+    .innerText = title;
+
+
+  document
+    .getElementById("popupImage")
+    .src = image;
+
+
+  document
+    .getElementById("popupText")
+    .innerText = text;
+
+
+  document
+    .getElementById("popup")
+    .classList.add("active");
+
+}
+
+
+/* =========================
+   CLOSE POPUP
+   ========================= */
+
+function closePopup() {
+
+  document
+    .getElementById("popup")
+    .classList.remove("active");
+
+}
+
+
+/* =========================
+   CLICK OUTSIDE POPUP
+   ========================= */
+
+document
+  .getElementById("popup")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === this) {
+
+        closePopup();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+</html>
+
